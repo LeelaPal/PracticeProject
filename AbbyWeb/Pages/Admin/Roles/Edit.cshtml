@@ -1,0 +1,69 @@
+﻿@page
+@model AbbyWeb.Pages.Admin.Roles.EditModel
+
+<form method="post">
+    <input type="hidden" asp-for ="@Model.Role.Id" />
+    <div class="border p-3 mt-4">
+        <div class ="row pb-3">
+        <h2 class="text-primary pl-3">Edit Role</h2>
+        <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-4">
+            <label asp-for="@Model.Role.Name"></label>
+            <input  asp-for="@Model.Role.Name" disabled class="form-control" />
+            
+        </div>
+        <div class="mb-4">
+            @*<h2 class="bg-info p-1 text-white">Add To @Model.Role.Name</h2>
+            <table class="table table-bordered table-sm">
+                @if (Model.NonMembers.Count() == 0)
+                {
+                    <tr><td colspan="2">All Users Are Members</td></tr>
+                }
+                else
+                {
+                    @foreach (var user in Model.NonMembers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="AddIds" value="@user.Id">
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>*@
+        </div>
+        <div class="mb-4">
+            @*<h2 class="bg-info p-1 text-white">Remove From @Model.Role.Name</h2>
+            <table class="table table-bordered table-sm">
+                @if (Model.RoleMembers.Count() == 0)
+                {
+                    <tr><td colspan="2">No Users Are Members</td></tr>
+                }
+                else
+                {
+                    @foreach (var user in Model.RoleMembers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="DeleteIds" value="@user.Id">
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>*@
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+        <a asp-page="index" class="btn btn-secondary" style="width:150px;">Back to List</a>
+    </div>
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
